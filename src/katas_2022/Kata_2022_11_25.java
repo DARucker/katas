@@ -10,8 +10,7 @@ public class Kata_2022_11_25 {
 		
 		for(int i=0; i<20; i++) {
 			
-			double numeroD = Math.random() * 100;
-			int numero = (int) numeroD;
+			int numero = (int) (Math.random() * 100);
 			
 			if(numero % 2 == 0) {
 				numeros[posicionPar] = (int) numero;
