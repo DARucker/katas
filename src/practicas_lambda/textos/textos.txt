@@ -1,5 +1,20 @@
 https://www.oracle.com/lad/technical-resources/articles/java/expresiones-lambda-api-stream-java.html
 
+Es un metodo anonimo que no requiere de un identificador para ser invocado
+
+ECODE 
+Como hemos visto las expresiones lambda son funciones anónimas y pueden 
+ser utilizadas allá donde el tipo aceptado sea una interfaz funcional 
+pero… ¿qué es una interfaz funcional?
+
+El motivo de que la interfaz tenga un único método abstracto es que será 
+la expresión lambda la que proveerá de la implementación para dicho método.
+
+
+(parametros)  operador -> expresion o funcion
+Mitocode "todo aquello que pueda ser implementado a través de una clase anónima puede
+ser representado por una lambda"	 
+
 Expresiones Lambda
 Por medio de expresiones lambda podemos referenciar mÃ©todos anÃ³nimos o mÃ©todos sin nombre,
  lo que nos permite escribir cÃ³digo mÃ¡s claro y conciso que  cuando usamos clases anÃ³nimas. Una expresiÃ³n lambda se compone de:
@@ -52,4 +67,37 @@ Cuando la expresiÃ³n lambda se compone de una sola sentencia e invoca algÃºn mÃ©
  de referencia, con lo cual se logra un cÃ³digo mÃ¡s compacto y fÃ¡cil de leer. 
  Existen tres (3) tipos de mÃ©todos de referencia y uno adicional (1) para constructores:  
  
+ Conclusión
+En esta primera parte analizamos lo beneficioso que puede ser para nuestro código el 
+poder pasar comportamiento como valores/parámetros y revisamos los cambios en el 
+lenguaje que permiten el uso de expresiones lambda:
+
++ Funciones como entidades de primer nivel: Las funciones ahora tienen un rol 
+	protagónico cuando de expresiones lambda se trata.
++ Métodos por defecto/estáticos en interfaces: Evolución de librerías sin perder 
+	compatibilidad gracias a que ahora podemos definir e implementar métodos en las interfaces.
++ Interfaces funcionales: Concepto clave para poder escribir expresiones lambda. Interfaces 
+	con solo un método abstracto.
++ Inferencia de tipos: Revisamos los pasos que realiza el compilador para inferir los 
+	tipos de las expresiones lambda en contextos de asignación y de invocación de métodos (parámetros).
++ Alcance de las expresiones lambda: Aprendimos el significado de Efectivamente Constante 
+	y revisamos la diferencia entre clases anónimas y expresiones lambda en cuanto a la palabra 
+	reservada this se refiere.
++ Métodos de referencia: En el último tema vimos otra forma de escribir expresiones lambda 
+	de una sola sentencia, con lo cual se logra un código más compacto y fácil de leer.
+ 
+ 
+ 
+ API Stream Stream se define como una secuencia de elementos que provienen de una fuente que 
+ soporta operaciones para el procesamiento de sus datos:
+
+ + De forma declarativa usando expresiones lambda.
+ + Permitiendo el posible encadenamiento de varias operaciones, con lo que se logra tener 
+ 	un código fácil de leer y con un objetivo claro.
+ + De forma secuencial o paralela (Fork/Join).
+ 
+ 
+ La API nos permite realizar operaciones sobre colecciones de datos usando el modelo 
+ filtro/mapeo/reducción, en el cual se seleccionan los datos que se van a procesar (filtro), 
+ se convierten a otro tipo de dato (mapeo) y al final se obtiene el resultado deseado (reducción).
  
