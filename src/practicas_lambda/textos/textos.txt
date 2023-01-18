@@ -1,0 +1,55 @@
+https://www.oracle.com/lad/technical-resources/articles/java/expresiones-lambda-api-stream-java.html
+
+Expresiones Lambda
+Por medio de expresiones lambda podemos referenciar métodos anónimos o métodos sin nombre,
+ lo que nos permite escribir código más claro y conciso que  cuando usamos clases anónimas. Una expresión lambda se compone de:
+
+   Listado de parámetros separados por comas y encerrados en paréntesis, por ejemplo: (a,b).
+   El símbolo de flecha hacia la derecha: ->
+   Un cuerpo que puede ser un bloque de código encerrado entre llaves o una sola expresión.
+A continuación algunos ejemplos de expresiones lambda:
+
+
+
+Interfaces funcionales
+Concepto nuevo en Java SE 8 y que es la base para que podamos escribir expresiones lambda. Una interface
+ funcional se define como una interface que tiene uno y solo un método abstracto y que éste sea 
+ diferente a los métodos definidos en java.lang.Object (a saber: equals, hashcode, clone, etc.). 
+ La interface puede tener métodos por defecto y estáticos sin que esto afecte su condición
+  de ser interface funcional.
+  
+ Java SE 8 define cuatro (4) grandes grupos de interfaces funcionales agrupadas en el paquete 
+ java.util.function. A continuación veremos las principales de cada grupo:
+
+java.util.function.Predicate<T>: Define  el  método  +test(T):boolean  y  es  usada 
+    para validación de criterios.
+  
+java.util.function.Supplier<T>: Define el método +get():T y es usada para la creación de objetos.
+ 
+java.util.function.Consumer<T>: Define el método +accept(T):void y es usada para consumir
+    métodos del parámetro T, causando posibles efectos secundarios.
+ 
+java.util.function.Function<T, R>: Define el método +apply(T):R y es usada para convertir 
+   de un valor T a otro valor R.
+   
+
+De forma general, a continuación se listan los pasos que usa el compilador para inferir el tipo de una expresión lambda:
+
+Identificación de contexto: asignación o invocación de método.
+ 
+   Identificar el tipo destino: variable o parámetro.
+ 
+   Identificar la interface funcional del tipo destino.
+ 
+   Identificar el descriptor de la función (firma del método abstracto).
+ 
+  Verificar que el descriptor de la función sea coherente con la expresión lambda.
+    
+    
+  Métodos de Referencia
+Cuando la expresión lambda se compone de una sola sentencia e invoca algún método
+ existente por medio de su nombre, existe la posibilidad de escribirla usando métodos 
+ de referencia, con lo cual se logra un código más compacto y fácil de leer. 
+ Existen tres (3) tipos de métodos de referencia y uno adicional (1) para constructores:  
+ 
+ 
