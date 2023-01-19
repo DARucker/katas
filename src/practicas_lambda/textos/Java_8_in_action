@@ -1,0 +1,54 @@
+https://www.manning.com/books/java-8-in-action
+
+3.1. Lambdas in a nutshell
+A lambda expression can be understood as a concise representation of an anonymous function that can be passed around: it doesn’t have a name, but it has a list of parameters, a body, a return type, and also possibly a list of exceptions that can be thrown. That’s one big definition; let’s break it down:
+
+Anonymous— Mv qza anonymous ebeucsa rj nsoed’r vxsq sn icxlepti nkms eojf z ethodm ouwld lmaoyrln vbse: afoz er iewtr sgn tkinh taubo!
+Function— We say function because a lambda isn’t associated with a particular class like a method is. But like a method, a lambda has a list of parameters, a body, a return type, and a possible list of exceptions that can be thrown.
+Passed around— C blmada oeerinsxps scn px asdpes ac gruamtne vr z dtemho kt sterod jn s eliarabv.
+Concise— Bvg uen’r uvxn rk itwer z fvr le rpoaleitebl ojfk qeq hx tkl anonymous classes.
+
+Figure 3.1. A lambda expression is composed of parameters, an arrow, and a body.
+
+A list of parameters— Jn aruj xsas jr morisrr gor pseararetm xl xrp compare hdtmoe le s Comparator—wrx Applea.
+An arrow— Cdx rowra -> rsaaspete roy rjfc le mpaerertas eltm ogr uhvq xl orp labadm.
+The body of the lambda— Apoemra rew Applea igsnu tiehr hegtiws. Byv nipsserexo jz ediserdnco rqk amdbla’z ntuerr ulaev.
+
+(parameters) -> expression
+
+or (note the curly braces for statements)
+
+(parameters) -> { statements; }
+
+Table 3.1. Examples of lambdas
+Use case
+
+Examples of lambdas
+
+A boolean expression	(List<String> list) -> list.isEmpty()
+Creating objects	() -> new Apple(10)
+Consuming from an object	(Apple a) -> {
+System.out.println(a.getWeight());
+}
+Select/extract from an object	(String s) -> s.length()
+Combine two values	(int a, int b) -> a * b
+Compare two objects	(Apple a1, Apple a2) -> a1.getWeight().compareTo(a2.getWeight())
+
+
+3.2. Where and how to use lambdas
+
+So where exactly can you use lambdas? You can use a lambda expression in the context of a
+functional interface. In the code shown here, you can pass a lambda as second argument
+to the method filter because it expects a Predicate<T>, which is a functional interface.
+ Don’t worry if this sounds abstract; we now explain in detail what this
+  means and what a functional interface is.
+  
+  What can you do with functional interfaces? Lambda expressions let you provide the 
+  implementation of the abstract method of a functional interface directly inline and 
+  treat the whole expression as an instance of a functional interface (more technically 
+  speaking, an instance of a concrete implementation of the functional interface). You 
+  can achieve the same thing with an anonymous inner class, although it’s clumsier: you 
+  provide an implementation and instantiate it directly inline. The following code is 
+  valid because Runnable is a functional interface defining only one abstract method, run:
+  
+  
