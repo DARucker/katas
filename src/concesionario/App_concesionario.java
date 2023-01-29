@@ -30,6 +30,8 @@ public class App_concesionario {
 		cars.add(new Coche("Fiat", "Cinquecento", 1500, 500));
 		cars.add(new Coche("Fiat", "Panda", 1600, 120));
 		cars.add(new Coche("Fiat", "Tipo", 1800, 1650));
+		cars.add(new Coche("Fiat", "Tipo", 1500, 1650));
+		cars.add(new Coche("Fiat", "Tipo", 1000, 1650));
 		cars.add(new Coche("Fiat", "Doblo", 2000, 1500));
 
 		potencia();
@@ -37,7 +39,8 @@ public class App_concesionario {
 		mediaCaballos();
 		cantidad("Ford");
 		listMarca("Fiat");
-		firtCar("Fiat");
+		firtCar("Ford");
+		lastCar("FORD");
 	}
 
 	// 1
@@ -72,19 +75,25 @@ public class App_concesionario {
 	// 5  
 	public static void listMarca(String marca) {
 		System.out.println("\n" + "5.-Todos los coches diferentes de una marca:");		
-		Stream<Coche> cars2 = cars.stream().filter(x -> x.getMarca().equalsIgnoreCase(marca));
-		cars2.forEach(x -> System.out.println(x));
+		cars.stream().filter(x -> x.getMarca().equalsIgnoreCase(marca)).distinct().forEach(x -> System.out.println(x));
+		
+	
 	}
 	
 	// 6
 	private static void firtCar(String marca) {
 		System.out.println("\n" + "6.-Primer coche de una marca:");		
-		System.out.print(cars.stream().filter(x -> x.getMarca().equalsIgnoreCase(marca)).limit(1).collect(Collectors.toList()));
-		
+		System.out.print(cars.stream().filter(x -> x.getMarca().equalsIgnoreCase(marca)).limit(1).collect(Collectors.toList()));		
+		// 6b
+		System.out.println("\n" + "6.b idem pero con findFist()");
+		System.out.println(cars.stream().filter(x -> x.getMarca().equalsIgnoreCase(marca)).findFirst());
 	}
 
 
-	// 7.-Último coche de una marca:
-	
-	
+	// 7
+	private static void lastCar(String marca) {
+		System.out.println("\n" + "7.-Ultimo coche de una marca:");			
+		long size = cars.stream().filter(x -> x.getMarca().equalsIgnoreCase(marca)).count();
+		System.out.println(cars.get((int) (size - 1)).toString());	
+	}
 }
